@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@+id/nav_ballina"
+          android:icon="@mipmap/ic_home_black_24dp"
+        android:title="Ballina"/>
+    <item android:id="@+id/nav_lajme"
+          android:icon="@mipmap/ic_chat_black_24dp"
+        android:title="Lajme"/>
+    <item android:id="@+id/nav_ekonomi"
+          android:icon="@mipmap/ic_euro_symbol_black_24dp"
+        android:title="Ekonomi"/>
+    <item android:id="@+id/nav_sport"
+          android:icon="@mipmap/ic_directions_bike_black_24dp"
+        android:title="Sport"/>
+    <item android:id="@+id/nav_shendetesi"
+          android:icon="@mipmap/ic_favorite_black_24dp"
+        android:title="Shendetesi"/>
+    <item android:id="@+id/nav_teknologji"
+          android:icon="@mipmap/ic_computer_black_24dp"
+        android:title="Teknologji"/>
+    <item android:id="@+id/nav_auto"
+          android:icon="@mipmap/ic_directions_car_black_24dp"
+        android:title="Auto"/>
+    <item android:id="@+id/nav_magazina"
+          android:icon="@mipmap/ic_import_contacts_black_24dp"
+          android:title="Magazina"/>
+    <item android:id="@+id/nav_lifestyle"
+          android:icon="@mipmap/ic_bubble_chart_black_24dp"
+          android:title="LifeStyle"/>
+    <item android:id="@+id/nav_kuriozitete"
+          android:icon="@mipmap/ic_polymer_black_24dp"
+          android:title="Kuriozitete"/>
+    <item android:id="@+id/nav_kuzhina"
+          android:icon="@mipmap/ic_restaurant_black_24dp"
+          android:title="Kuzhina"/>
+
+
+</menu>
