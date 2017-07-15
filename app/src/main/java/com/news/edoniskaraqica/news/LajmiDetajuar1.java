@@ -69,16 +69,18 @@ public class LajmiDetajuar1 extends AppCompatActivity {
         int index=getIntent().getIntExtra(KEY_INDEX,-1);
         //index=index-1;
         //arsyeja pse po fillojme prej index - 1 eshte se te klasa newsStore numerimi fillon prej 0
-        url=NewsStore.getNewsArticles().get( index-1 ).getUrl();
 
         call = NewsAPI.getApi().getArticles1(index);
+        url=NewsStore.getNewsArticles().get( index-1).getUrl();
+        //url=NewsStoreDetaje.getNewsArticles1().get( index ).getUrl();
+
         //call mundet mu thirr sinkronsilli ose asinkronislli, po masi e thirrim prej thredit kryesor atehere eshte asinkroslli
         call.enqueue(new Callback<Artikulli>() {
             @Override
             public void onResponse(retrofit2.Call<Artikulli> call, Response<Artikulli> response) {
                 Artikulli getArticlesResponse1=response.body();
                 NewsStoreDetaje.setNewsArticles1(getArticlesResponse1.getArticles1());
-                Toast.makeText(LajmiDetajuar1.this,"Response received",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(LajmiDetajuar1.this,"Sukses",Toast.LENGTH_SHORT).show();
                 homeNewsAdapter1=new HomeNewsAdapterDetaje(getArticlesResponse1.getArticles1());
                 newsRecyclerView.setAdapter(homeNewsAdapter1);
 

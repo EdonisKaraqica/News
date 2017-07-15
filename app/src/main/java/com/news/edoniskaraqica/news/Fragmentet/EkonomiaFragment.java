@@ -1,16 +1,25 @@
-package com.news.edoniskaraqica.news;
+package com.news.edoniskaraqica.news.Fragmentet;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.news.edoniskaraqica.news.HomeNewsAdapter;
+import com.news.edoniskaraqica.news.LajmiDetajuar1;
+import com.news.edoniskaraqica.news.NewsStore;
+import com.news.edoniskaraqica.news.R;
 import com.news.edoniskaraqica.news.model.GetArticlesResponse;
 import com.news.edoniskaraqica.news.networking.NewsAPI;
 
@@ -23,12 +32,14 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SportFragment extends Fragment {
+public class EkonomiaFragment extends Fragment implements SearchView.OnQueryTextListener {
     private RecyclerView newsRecyclerView;
     private static final String KEY_INDEX="news_index";
+    private HomeNewsAdapter homeNewsAdapter;
+    
 
 
-    public SportFragment() {
+    public EkonomiaFragment() {
         // Required empty public constructor
     }
 
@@ -36,8 +47,8 @@ public class SportFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView1=inflater.inflate( R.layout.fragment_sport,null );
-        newsRecyclerView=(RecyclerView) rootView1.findViewById( R.id.activity_main_recyclerview_sport);
+        View rootView1=inflater.inflate( R.layout.fragment_ekonomia,null );
+        newsRecyclerView=(RecyclerView) rootView1.findViewById( R.id.activity_main_recyclerview_ekonomia);
         newsRecyclerView.setLayoutManager( new LinearLayoutManager( getActivity() ));
         return rootView1;
     }
@@ -65,7 +76,7 @@ public class SportFragment extends Fragment {
         int index=getActivity().getIntent().getIntExtra(KEY_INDEX,-1);
 
         retrofit2.Call<GetArticlesResponse> call;
-        call = NewsAPI.getApi().getArticles2();
+        call = NewsAPI.getApi().getArticles3();
         //call mundet mu thirr sinkronsilli ose asinkronislli, po masi e thirrim prej thredit kryesor atehere eshte asinkroslli
         call.enqueue(new Callback<GetArticlesResponse>() {
             @Override
@@ -96,4 +107,24 @@ public class SportFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate( R.menu.menu_main,menu );
+        MenuItem menuItem=menu.findItem( R.id.search );
+        SearchView searchView=(SearchView) MenuItemCompat.getActionView( menuItem );
+        searchView.setOnQueryTextListener( this );
+        super.onCreateOptionsMenu( menu, inflater );
+    }
+
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        homeNewsAdapter.getFilter().filter(newText);
+        return true;
+    }
 }

@@ -1,6 +1,4 @@
 package com.news.edoniskaraqica.news.Databaza;
-import com.news.edoniskaraqica.news.BallinaFragment;
-import com.news.edoniskaraqica.news.MainActivity;
 import com.news.edoniskaraqica.news.model.Article;
 import com.news.edoniskaraqica.news.networking.merriLajmetListener;
 
@@ -11,15 +9,11 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Looper;
-import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.news.edoniskaraqica.news.model.Article;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.LogRecord;
 
 /**
  * Created by Edonis Karaçica on 7/6/2017.
@@ -56,6 +50,7 @@ public class Databaza extends SQLiteOpenHelper {
         //Log.d( TAG,"Values Got "+article.getTitle() );
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
         values.put( Constants.ID,article.getId());
         values.put( Constants.TITLE,article.getTitle() );
         values.put( Constants.DESCRIPTION,article.getDescription() );
@@ -66,6 +61,8 @@ public class Databaza extends SQLiteOpenHelper {
         try {
 
             db.insert( Constants.TABLE_NAME,null,values );
+            //db.execSQL( "Insertt into "+Constants.TABLE_NAME+ "(id,title,description,url,publishedAt)" +
+             //       " values('"+article.getId()+"',"+"'"+article.getTitle()+"','"+article.getDescription()+"','"+article.getUrl()+"','"+article.getPublishedAt()+"')");
             Toast.makeText( c,"sukses",Toast.LENGTH_SHORT ).show();
 
 

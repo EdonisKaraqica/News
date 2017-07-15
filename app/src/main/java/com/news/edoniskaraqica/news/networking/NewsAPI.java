@@ -27,11 +27,9 @@ import retrofit2.Call;
  */
 
 public class NewsAPI {
-    private static final String APIKEY="12de349c02004428898d4e2b9649ef73";
+   // private static final String APIKEY="12de349c02004428898d4e2b9649ef73";
     private static final String APIPATH="http://edonisk.com/";
-//    private List<ArticleDetailed> newsArticles1;
-//    int post=0;
-//    ArticleDetailed newsArticle1=newsArticles1.get(post);
+
 
 
      private static NewsService newsService=null;
@@ -61,6 +59,15 @@ public class NewsAPI {
 
         @GET("sport.json")
         Call<GetArticlesResponse> getArticles2();
+
+        @GET("ekonomia.json")
+        Call<GetArticlesResponse> getArticles3();
+
+        @GET("lajme.json")
+        Call<GetArticlesResponse> getArticles4();
+
+        @GET("shendetsi.json")
+        Call<GetArticlesResponse> getArticles5();
 
     }
 }

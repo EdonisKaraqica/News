@@ -1,4 +1,4 @@
-package com.news.edoniskaraqica.news;
+package com.news.edoniskaraqica.news.Fragmentet;
 
 
 import android.content.Context;
@@ -32,6 +32,10 @@ import android.widget.Toast;
 
 import com.news.edoniskaraqica.news.Databaza.Databaza;
 import com.news.edoniskaraqica.news.Databaza.Utilis;
+import com.news.edoniskaraqica.news.HomeNewsAdapter;
+import com.news.edoniskaraqica.news.LajmiDetajuar1;
+import com.news.edoniskaraqica.news.NewsStore;
+import com.news.edoniskaraqica.news.R;
 import com.news.edoniskaraqica.news.model.Article;
 import com.news.edoniskaraqica.news.model.ArticleDetailed;
 import com.news.edoniskaraqica.news.model.Artikulli;
@@ -55,7 +59,7 @@ import retrofit2.Response;
 public class BallinaFragment extends Fragment implements SearchView.OnQueryTextListener, merriLajmetListener{
     private static final String KEY_INDEX = "news_index";
     private RecyclerView newsRecyclerView;
-    private  HomeNewsAdapter homeNewsAdapter;
+    private HomeNewsAdapter homeNewsAdapter;
     private Databaza mDatabaza;
 
    // private Databaza mDatabaza=new Databaza(  getActivity().getApplicationContext());
@@ -75,7 +79,7 @@ public class BallinaFragment extends Fragment implements SearchView.OnQueryTextL
         //setContentView(R.layout.activity_lajmi_detajuar1);
         setHasOptionsMenu( true );
         SimpleDateFormat smpData = new SimpleDateFormat( "hh:mm" );
-        Databaza mDatabaza=new Databaza( getContext());
+        Databaza mDatabaza=new Databaza( getActivity());
 
         //mDatabaza=new Databaza(getActivity() );
 

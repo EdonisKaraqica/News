@@ -56,6 +56,7 @@ public class HomeNewsAdapter extends RecyclerView.Adapter<HomeNewsAdapter.HomeNe
             @Override
             public void onClick(View view) {
                 //final int newsA=newsArticle.getId();
+
                 LajmiDetajuar1.launch1(view.getContext(),value);
             }
         });

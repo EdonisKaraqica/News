@@ -8,6 +8,7 @@
     android:layout_marginTop="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +37,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="18dp"
-            android:maxLines="1"
+            android:textSize="80px"
+            android:maxLines="3"
             android:text="News Title"
             android:layout_below="@id/palidhije"/>
 
@@ -73,7 +75,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
-            android:maxLines="4"
+            android:maxLines="0"
             android:layout_below="@+id/ora"
             android:text="This is simple content This is simple content This is simple content This is simple content This is simple content This is simple content This is simple content This is simple content This is simple content This is simple content" />
 

@@ -36,21 +36,21 @@ public class HomeNewsAdapterDetaje extends RecyclerView.Adapter<HomeNewsAdapterD
     @Override
     public void onBindViewHolder(HomeNewsViewHolder holder, final int position) {
         ArticleDetailed newsArticle1=newsArticles1.get(position);
-        //int n=-1;
-        int n=-1;
-        n= Integer.parseInt(newsArticle1.getId());
+        String n="";
+        n=newsArticle1.getId();
+        final int value=Integer.parseInt(n.toString());
         //final int n= Integer.parseInt(newsArticle1.getId());
         Glide.with(holder.cardImageView.getContext()).load(newsArticle1.getUrlToImage()).centerCrop().into(holder.cardImageView);
         holder.cardTitleTextView.setText(newsArticle1.getTitle());
         holder.cardTimeTextView.setText(DateUtils.formatNewsApiDate(newsArticle1.getPublishedAt()));
         holder.cardContentTextView.setText(newsArticle1.getDescription());
         holder.ora.setText(newsArticle1.getId());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LajmiDetajuar1.launch1(view.getContext(),position);
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                LajmiDetajuar1.launch1(view.getContext(),value);
+//            }
+//        });
 
 
 
